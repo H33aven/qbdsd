@@ -30,5 +30,6 @@ cp -v files/hypr/keybindings.conf ~/.config/hypr/
 cp -v files/hypr/config.jsonc ~/.config/fastfetch
 
 unzip -o files/hyde/Graphite_Eto.zip -d ~/.config/hyde/themes/
+cp -v files/hyde/hyde.conf ~/.local/share/hyde/
 
 echo -e "${GREEN}Successfully!${NC}"

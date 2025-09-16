@@ -1,19 +1,5 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-handle_error() {
-    echo -e "${RED}Error in line $1: ${2}${NC}" >&2
-    exit 1
-}
-
-trap 'handle_error ${LINENO} "$BASH_COMMAND"' ERR
-
-echo -e "${YELLOW}Loading...${NC}"
-
 mkdir -p ~/.local/share/waybar/styles/
 mkdir -p ~/.local/share/waybar/layouts/
 mkdir -p ~/.config/hypr/
@@ -32,4 +18,11 @@ cp -v files/hypr/config.jsonc ~/.config/fastfetch
 unzip -o files/hyde/Graphite_Eto.zip -d ~/.config/hyde/themes/
 cp -v files/hyde/hyde.conf ~/.local/share/hyde/
 
-echo -e "${GREEN}Successfully!${NC}"
+sudo pacman -S discord steam --noconfirm
+yay -S spotify spicetify-cli
+
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+curl -fsSL https://raw.githubusercontent.com/spicetify/marketplace/main/resources/install.sh | sh
+
+echo "Successfully!"
